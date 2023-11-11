@@ -1,11 +1,24 @@
 import sys
 import os
 import exifread
+import platform
+import subprocess
 
 
-def get_timestamp(picture_file):
+def get_timestamp_from_sips(picture_file_path):
+    sips_output = subprocess.run(
+        ["sips", "-g", "creation", picture_file_path],
+        capture_output=True,
+        text=True,
+    ).stdout
+    sips_output_row_list = sips_output.split("\n")
+    sips_output_2nd_row = sips_output_row_list[1]
+    timestamp = sips_output_2nd_row.strip().strip("creation:").strip()
+    return timestamp
+
+
+def get_timestamp_from_exifread(picture_file):
     tags = exifread.process_file(picture_file)
-    # print(tags)
     if "EXIF DateTimeOriginal" in tags:
         return tags["EXIF DateTimeOriginal"].values
     else:
@@ -31,7 +44,11 @@ def main():
             )
             continue
 
-        timestamp = get_timestamp(picture_file)
+        if platform.system() == "Darwin":
+            timestamp = get_timestamp_from_sips(picture_file_path)
+        else:
+            timestamp = get_timestamp_from_exifread(picture_file)
+
         if not timestamp:
             print(
                 "rename picture file [{0}/{1}] : {2} does not have timestamp.".format(
