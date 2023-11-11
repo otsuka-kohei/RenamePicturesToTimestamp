@@ -11,6 +11,7 @@ Python 3系で使用してください。
 - DNG
 - ARW
 ### 処理不可能
+macOS以外の環境では以下の形式のファイルを処理することができません。
 - HIF（ソニーαシリーズで撮影）
 ## 使用方法
 python rename_picture_files_to_timestamp.py [写真ファイルを配置したパス]  
@@ -28,6 +29,7 @@ Example: 7M400001.ARW => 2023-02-23_12-53-12_7M400001.ARW
 - DNG
 - ARW
 ### Not processable
+This program cannot process files of below format on other than macOS.
 - HIF (taken by Sony α series)
 ## How to use
 python rename_picture_files_to_timestamp.py [epub files directory path]  
