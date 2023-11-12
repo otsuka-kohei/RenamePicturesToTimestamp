@@ -34,5 +34,5 @@ Example: 7M400001.ARW => 2023-02-23_12-53-12_7M400001.ARW
 This program cannot process files of below format on other than macOS.
 - HIF (taken by Sony α series)
 ## How to use
-python rename_picture_files_to_timestamp.py [epub files directory path]  
+python rename_picture_files_to_timestamp.py [picture files directory path]  
 Example: python ./rename_picture_files_to_timestamp.py ./pictures
