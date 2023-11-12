@@ -29,7 +29,7 @@ Example: 7M400001.ARW => 2023-02-23_12-53-12_7M400001.ARW
 - JPEG
 - DNG
 - ARW
-- HIF　(only when run this programm on macOS)
+- HIF　(only when run this program on macOS)
 ### Not processable
 This program cannot process files of below format on other than macOS.
 - HIF (taken by Sony α series)
